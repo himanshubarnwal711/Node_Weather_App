@@ -13,9 +13,11 @@ const forecast = (lat, lng, callback) => {
       const temperature = response.body.current.temperature;
       const precipitation = response.body.current.precip;
       const weather_description = response.body.current.weather_descriptions[0];
+      const feelsLike = response.body.current.feelslike;
+      const humidity = response.body.current.humidity;
       callback(
         undefined,
-        `${weather_description}. It is currently ${temperature} degrees out in ${city}. There is a ${precipitation}% chance of rain.`
+        `${weather_description}. It is currently ${temperature} degrees out in ${city}. It feels like ${feelsLike} degree. The humidity level is ${humidity}. There is a ${precipitation}% chance of rain.`
       );
     }
   });
